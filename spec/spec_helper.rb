@@ -14,6 +14,13 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  RSpec.shared_examples 'MethodNotImplmented' do |klass, method_name|
+    let(:obj) { klass.new }
+    it "should raise MethodNotImplmentedError for #{method_name}" do
+      expect { obj.send(method_name) }.to raise_error(FoundationKit::Errors::MethodNotImplementedError)
+    end
+  end
+
   RSpec.shared_examples 'password mask from string output' do |klass, method_name|
     let(:instance) do
       klass.new(password: 'a password',
