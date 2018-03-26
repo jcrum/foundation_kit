@@ -11,7 +11,7 @@ module FoundationKit
     MAJOR = 0
     MINOR = 1
     TINY  = 0
-    PRE   = 'alpha'
+    PRE   = nil
 
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')
   end
