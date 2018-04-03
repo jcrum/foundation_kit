@@ -12,9 +12,9 @@ class Class
   #
   # @raise [FoundationKit::Errors::ClassNotImplmentedError]
   # @raise [FoundationKit::Errors::MethodNotImplmentedError]
-  def abstract_definition(*args)
+  def abstract_definition(*method_names)
     # rubocop:disable Style/GuardClause, Lint/UnusedBlockArgument, Lint/ShadowingOuterLocalVariable
-    args.each do |method_name|
+    method_names.each do |method_name|
       define_method(method_name) do |*args|
         if method_name == :initialize
           raise FoundationKit::Errors::ClassNotImplementedError.new(class_name: self.class.name)
